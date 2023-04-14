@@ -3,3 +3,13 @@
     <ion-title> Todo list </ion-title>
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <ion-grid [fixed]="true">
+    <ion-row>
+      <ion-col *ngFor="let card of todoCards$ | async">
+        <app-todo-card [todoCard]="card"></app-todo-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
