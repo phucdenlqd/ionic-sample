@@ -1,7 +1,7 @@
 <ion-content>
   <ion-grid [fixed]="true">
     <ion-row>
-      <ion-col *ngFor="let card of todoCards$ | async" size-lg="4">
+      <ion-col *ngFor="let card of todoCards$ | async" size="12" size-md="6" size-lg="4" class="md:mb-5">
         <app-todo-card [todoCard]="card"></app-todo-card>
       </ion-col>
     </ion-row>

@@ -1,3 +1,20 @@
+.form-label {
+  @apply block pr-6 md:text-right text-lg font-bold  text-gray-800;
+}
+
 ion-datetime {
-    border-radius: 16px;
-  }
+  border-radius: 16px;
+}
+
+ion-datetime-button::part(native),
+input {
+  @apply h-9 w-full rounded-lg bg-gray-100 px-4 text-left text-gray-800;
+}
+
+textarea {
+  @apply w-full rounded-lg bg-gray-100 px-4 text-left text-gray-800;
+}
+
+ion-button::part(native) {
+  @apply rounded-lg text-base font-bold;
+}

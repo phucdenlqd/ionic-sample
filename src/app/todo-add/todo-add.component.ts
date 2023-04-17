@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { TodoCardService } from '../todo-list/todo-list.service';
 
 @Component({
   selector: 'app-todo-add',
@@ -13,21 +14,27 @@ import { IonicModule } from '@ionic/angular';
 export class TodoAddComponent implements OnInit {
   todoTaskForm: FormGroup;
 
-  constructor() {}
+  constructor(private todoCardService: TodoCardService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.initForm();
   }
 
-  initForm() {
-    const initData = new Date().toISOString();
+  initForm(): void {
+    const initDate = new Date().toISOString();
     this.todoTaskForm = new FormGroup({
-      title: new FormControl('assa'),
-      date: new FormControl(initData),
+      title: new FormControl(''),
+      date: new FormControl(initDate),
+      description: new FormControl(''),
     });
   }
 
-  onSubmit() {
-    console.log(this.todoTaskForm.value);
+  onSubmit(): void {
+    const value = this.todoTaskForm.value;
+    this.todoCardService.addTodoCard(
+      value.title,
+      value.date,
+      value.description
+    );
   }
 }
